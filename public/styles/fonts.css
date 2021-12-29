@@ -1,0 +1,157 @@
+@font-face {
+    font-family: 'Lato-Thin';
+    src: url('../public/fonts/Lato-Thin.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato-ThinItalic';
+    src: url('../public/fonts/Lato-ThinItalic.ttf');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato-Regular';
+    src: url('../public/fonts/Lato-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato-Italic';
+    src: url('../public/fonts/Lato-Italic.ttf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url('../public/fonts/Lato-Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato-BoldItalic';
+    src: url('../public/fonts/Lato-BoldItalic.ttf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato-Black';
+    src: url('../public/fonts/Lato-Black.ttf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato-BlackItalic';
+    src: url('../public/fonts/Lato-BlackItalic.ttf');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'NeoSansStd-Light';
+    src: url('../public/fonts/NeoSansStd-Light.otf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeoSansStd-LightItalic';
+    src: url('../public/fonts/NeoSansStd-LightItalic.otf');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'NeoSansStd-Regular';
+    src: url('../public/fonts/NeoSansStd-Regular.otf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeoSansStd-Italic';
+    src: url('../public/fonts/NeoSansStd-Italic.otf');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'NeoSansStd-Medium';
+    src: url('../public/fonts/NeoSansStd-Medium.otf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeoSansStd-MediumItalic';
+    src: url('../public/fonts/NeoSansStd-MediumItalic.otf');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'NeoSansStd-Bold';
+    src: url('../public/fonts/NeoSansStd-Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeoSansStd-BoldItalic';
+    src: url('../public/fonts/NeoSansStd-BoldItalic.otf');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'NeoSansStd-Black';
+    src: url('../public/fonts/NeoSansStd-Black.otf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeoSansStd-BlackItalic';
+    src: url('../public/fonts/NeoSansStd-BlackItalic.otf');
+    font-weight: 900;
+    font-style: italic;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-width: 0px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+select,
+option {
+    /* Paragraph */
+    font-family: 'Lato-Regular' !important;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px !important;
+    line-height: 24px;
+
+    /* gray / dark */
+    color: #333333;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: none;
+
+    /* tannat / default */
+    border-color: #c81a78 !important;
+}

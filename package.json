@@ -1,0 +1,67 @@
+{
+  "name": "cbcommerce",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.17",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "babel-plugin-import": "^1.13.3",
+    "compression-webpack-plugin": "^9.2.0",
+    "dotenv-webpack": "^7.0.3",
+    "mini-css-extract-plugin": "^2.4.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-scripts": "5.0.0",
+    "styled-components": "^5.3.3",
+    "typescript": "^4.5.4",
+    "web-vitals": "^2.1.2",
+    "webpack-bundle-analyzer": "^4.5.0"
+  },
+  "scripts": {
+    "clean": "rm dist/bundle.js",
+    "build-dev": "webpack --mode development",
+    "build-prod": "webpack --mode production",
+    "dev": "webpack serve --hot --mode development",
+    "test": "jest --maxWorkers=50%",
+    "test:watch": "jest --watch --bail --silent --coverage=false --maxWorkers=25%",
+    "test:ci": "jest --runInBand",
+    "lint": "eslint src --max-warnings=0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.16.5",
+    "@hot-loader/react-dom": "^17.0.1",
+    "@types/styled-components": "^5.1.19",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.1"
+  }
+}
