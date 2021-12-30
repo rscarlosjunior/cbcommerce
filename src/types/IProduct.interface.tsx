@@ -5,7 +5,7 @@ export interface IProduct {
   uid: number
   url?: string
   name: string
-  stars?: string
+  stars?: number
   price: number
   promotionPrice?: number
   parcel?: number

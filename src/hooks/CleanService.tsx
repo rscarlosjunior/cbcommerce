@@ -11,9 +11,9 @@ export const useCleanResponse = () => {
                 name: RichText.asText(item.data.name),
                 stars: item.data?.stars,
                 price: item.data?.price,
-                promotionPrice: item.data?.promotionPrice ,
+                promotionPrice: item.data?.promotionprice ,
                 parcel: item.data?.parcel,
-                splitedPrice: item.data?.splitedPrice,
+                splitedPrice: item.data?.splitedprice,
                 available: item.data?.avaible
             }
         }
