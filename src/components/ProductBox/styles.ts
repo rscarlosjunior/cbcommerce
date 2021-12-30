@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 //product wrapper
 export const Pwrapper = styled.div`
-    max-width: 260px;
+    max-width: 216px;
     max-height: 353px;
     background-color: white;
 `
