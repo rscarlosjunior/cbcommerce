@@ -89,6 +89,7 @@ const config = {
       '@/pages': path.resolve(__dirname, 'src/pages/'),
       '@/types': path.resolve(__dirname, 'src/types/'),
       '@/styles': path.resolve(__dirname, 'src/styles/'),
+      '@/hooks': path.resolve(__dirname, 'src/hooks/'),
       '@/services': path.resolve(__dirname, 'src/services/'),
       '@/components': path.resolve(__dirname, 'src/components/'),
       'react-dom': '@hot-loader/react-dom/',
