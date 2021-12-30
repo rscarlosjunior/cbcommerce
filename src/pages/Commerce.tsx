@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Header } from '@/components/Header';
 import { useFilter } from '@/hooks/FilterProducts';
-import { Cwrapper } from '@/styles/styles'
+import { ProductBoxContainer, Container, Template } from '@/styles/styles'
 import { usePrismicService } from '@/services/prismic';
 import { useCleanResponse } from '@/hooks/CleanService';
 import { IProduct, IProducts } from '@/types/IProduct.interface';
+import { ProductBox } from '@/components/ProductBox';
 
 interface CommerceProps {
     value?: string,
@@ -12,7 +13,7 @@ interface CommerceProps {
 
 }
 export const Commerce: React.FC = () => {
-    const [products, setProducts] = useState<IProducts>()
+    const [products, setProducts] = useState<IProduct[]>()
     const [productsList, setProductsList] = useState<IProducts[]>()
     const { productFilter } = useFilter()
     const { formatterResponse } = useCleanResponse()
@@ -21,7 +22,7 @@ export const Commerce: React.FC = () => {
     useEffect(() => {
         getPrismicByQuery().then(data => handlePrismicResponse(data))
     },[])
-    
+
     const handlePrismicResponse = (product:IProducts) => {
         formatterResponse(product).then(payload => setProductsList(payload))
     }
@@ -34,20 +35,22 @@ export const Commerce: React.FC = () => {
     const memoizedProducts = useMemo(() => {
         if(!products) return null
         return (
-            <ul>
-                {products.map((item: { uid: IProduct["uid"]; name: IProduct["name"]}) => 
-                    <li key={item.uid}>{item.name}</li>
+            <ProductBoxContainer>
+                {products.map((item) => 
+                    <ProductBox key={item.uid} {...item}/>
                 )}
-            </ul>
+            </ProductBoxContainer>
         )
     },[products])
 
     return (
-        <>  
-            <Cwrapper>
+        <>
+        <Template>
+            <Container>
                 <Header handleProductFilter={(value) => handleProductFilter({value})} />
-            </Cwrapper>
-            {memoizedProducts}
+                {memoizedProducts}
+            </Container>
+        </Template>
         </>
     )
 }
