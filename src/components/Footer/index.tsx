@@ -1,4 +1,3 @@
-import { Icon } from '@mui/material'
 import React from 'react'
 import { Fwrapper, Line, Ftitle, Faddress, Wrapper, Fbackground,Fbutton, FbuttonIcon, FbuttonWrapper, Fimagewrapper } from './styles'
 import EmailIcon from '@mui/icons-material/Email';
@@ -22,7 +21,7 @@ export const Footer = () => {
                     <Fbutton><FbuttonIcon><HeadphonesIcon /> </FbuttonIcon> Fale com o nosso consultor online</Fbutton>
                 </FbuttonWrapper>
                 <Fimagewrapper>
-                    <img height="45" width="200" src="https://i.imgur.com/11lCxTX.png"/>
+                    <img height="45" alt="logo" width="200" src="https://i.imgur.com/11lCxTX.png"/>
                 </Fimagewrapper>
             </Fwrapper>
         </Fbackground>

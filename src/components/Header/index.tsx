@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { SearchBar } from '@/components/SearchBar'
 import { Hcontent,IconSpacing,IconWrapper, MyAccount } from './styles'
 import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp';
