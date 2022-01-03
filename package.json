@@ -5,7 +5,9 @@
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
+    "@hookform/resolvers": "^2.8.5",
     "@mui/icons-material": "^5.2.5",
+    "@mui/lab": "^5.0.0-alpha.63",
     "@mui/material": "^5.2.6",
     "@prismicio/client": "^5.1.0",
     "@testing-library/jest-dom": "^5.16.1",
@@ -16,6 +18,7 @@
     "@types/prismic-dom": "^2.1.1",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
+    "@types/yup": "^0.29.13",
     "babel-plugin-import": "^1.13.3",
     "compression-webpack-plugin": "^9.2.0",
     "dotenv-webpack": "^7.0.3",
@@ -23,12 +26,15 @@
     "prismic-dom": "^2.2.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7.22.5",
     "react-hot-loader": "^4.13.0",
     "react-scripts": "5.0.0",
+    "react-swipeable": "^6.2.0",
     "styled-components": "^5.3.3",
     "typescript": "^4.5.4",
     "web-vitals": "^2.1.2",
-    "webpack-bundle-analyzer": "^4.5.0"
+    "webpack-bundle-analyzer": "^4.5.0",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "clean": "rm dist/bundle.js",
