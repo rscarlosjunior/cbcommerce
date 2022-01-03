@@ -36,6 +36,12 @@ export const NTitle = styled.p`
     line-height: 22px;
     text-align: center;
 `
+
+export const NTitleDescription = styled.p`
+    font-size: 16px;
+    text-align: center;
+    color: #7A7A7A;
+`
 export const NInput = styled.input`
     height: 48px;
     width:100%;
@@ -60,4 +66,9 @@ export const Nbutton = styled.div `
         max-width: 280px;
         margin-top: 5px;
     }
+`
+export const NbuttonSuccess = styled.div `
+    margin: 5px;
+    width:100%;
+    max-width: 280px;
 `
