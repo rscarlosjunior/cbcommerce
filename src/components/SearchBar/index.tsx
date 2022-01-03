@@ -4,7 +4,7 @@ import { SHiddenLabel, Sform, Swrapper, Sinput, Sbutton } from './styles'
 
 interface SearchBarProps {
     searchQuery?: string,
-    setSearchQuery?: unknown,
+    setSearchQuery?: any,
 }
 export const SearchBar = ({
     searchQuery,
@@ -18,19 +18,18 @@ export const SearchBar = ({
 
     return (
         <Swrapper>
-            <Sform action="/" method="get">
+            <Sform>
                 <label htmlFor="header-search">
                     <SHiddenLabel>O que está procurando?</SHiddenLabel>
                 </label>
                 <Sinput
-                    value={searchQuery}
-                    onChange={handleSearchQuery}
+                    onInput={handleSearchQuery}
                     type="text"
                     id="header-search"
                     placeholder="O que está procurando?"
                     name="s" 
                 />
-                <Sbutton type="submit"><Search fontSize="large"/></Sbutton>
+                <Sbutton><Search fontSize="large"/></Sbutton>
             </Sform>
         </Swrapper>
     )

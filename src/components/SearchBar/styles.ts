@@ -9,7 +9,7 @@ export const SHiddenLabel = styled.span`
     white-space: nowrap;
     width: 1px;
 `
-export const Sform = styled.form`
+export const Sform = styled.div`
     display: flex;
     width: 100%;
     max-width: 718px;
