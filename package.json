@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.2.5",
     "@mui/material": "^5.2.6",
     "@prismicio/client": "^5.1.0",
     "@testing-library/jest-dom": "^5.16.1",
@@ -23,6 +24,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hot-loader": "^4.13.0",
+    "react-responsive-carousel": "^3.2.22",
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.3",
     "typescript": "^4.5.4",
