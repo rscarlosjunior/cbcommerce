@@ -1,35 +1,41 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Header } from '@/components/Header';
 import { useFilter } from '@/hooks/FilterProducts';
-import { ProductBoxContainer, Container, Template } from '@/styles/styles'
+import { ProductBoxContainer, Container, Template, BannerImage } from '@/styles/styles'
 import { usePrismicService } from '@/services/prismic';
-import { useCleanResponse } from '@/hooks/CleanService';
-import { IProduct, IProducts } from '@/types/IProduct.interface';
+import { IProduct } from '@/types/IProduct.interface';
 import { ProductBox } from '@/components/ProductBox';
-
+import { Newsletter } from '@/components/Newsletter';
+import { Footer } from '@/components/Footer';
+import useMediaQuery from '@mui/material/useMediaQuery';
 interface CommerceProps {
     value?: string,
     formatted?: object
-
 }
+
 export const Commerce: React.FC = () => {
     const [products, setProducts] = useState<IProduct[]>()
-    const [productsList, setProductsList] = useState<IProducts[]>()
+    const [backlogProductList, setBacklogProductList] = useState<IProduct[]>()
     const { productFilter } = useFilter()
-    const { formatterResponse } = useCleanResponse()
     const { getPrismicByQuery }  = usePrismicService()
+    const xs = useMediaQuery('(max-width:797px)');
 
     useEffect(() => {
-        getPrismicByQuery().then(data => handlePrismicResponse(data))
+        handlePrismicByQuery()
     },[])
-
-    const handlePrismicResponse = (product:IProducts) => {
-        formatterResponse(product).then(payload => setProductsList(payload))
+    
+    const handlePrismicByQuery = async () => {
+       const data = await getPrismicByQuery()
+        setProducts(data.results)
+        setBacklogProductList(data.results)
     }
 
     const handleProductFilter = ({value}:CommerceProps) => {
-        const filter = productFilter(productsList, value)
-        setProducts(filter)
+        if(!products) return
+        if(!value) return setProducts(backlogProductList)
+        console.log(products)
+        const filter = productFilter(products, value)
+        setProducts(filter) //todo: check string removal and update listing
     }
     
     const memoizedProducts = useMemo(() => {
@@ -48,8 +54,14 @@ export const Commerce: React.FC = () => {
         <Template>
             <Container>
                 <Header handleProductFilter={(value) => handleProductFilter({value})} />
+            </Container>
+            {!xs && ( <BannerImage src="https://i.imgur.com/PIDL1qz.png" alt="criar ou migrar seu e-commerce?"/>)}
+            {xs && ( <BannerImage src="https://i.imgur.com/nYcU6ro.jpg" alt="criar ou migrar seu e-commerce?"/>)}
+            <Container>
                 {memoizedProducts}
             </Container>
+            <Newsletter/>
+            <Footer/>
         </Template>
         </>
     )
