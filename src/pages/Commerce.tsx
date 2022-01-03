@@ -33,7 +33,6 @@ export const Commerce: React.FC = () => {
     const handleProductFilter = ({value}:CommerceProps) => {
         if(!products) return
         if(!value) return setProducts(backlogProductList)
-        console.log(products)
         const filter = productFilter(products, value)
         setProducts(filter) //todo: check string removal and update listing
     }

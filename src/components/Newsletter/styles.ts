@@ -8,7 +8,7 @@ export const Nwrapper = styled.div`
     flex-direction: column;
     width: 100%;
 `
-export const NinputWrapper = styled.div`
+export const NinputWrapper = styled.form`
     display: flex;
     width: 100;
     margin-bottom: 25px;
@@ -19,6 +19,15 @@ export const NinputWrapper = styled.div`
         flex-direction:column;
     }
 `
+export const NvalidationField = styled.div`
+    display: flex;
+    margin: 5px;
+    align-items: center;
+    width:100%;
+    max-width: 280px;
+    justify-content:center;
+    flex-direction: column;
+`
 export const NTitle = styled.p`
     color: #333333;
     margin: 24px 0 16px 0;
@@ -28,31 +37,25 @@ export const NTitle = styled.p`
     text-align: center;
 `
 export const NInput = styled.input`
+    height: 48px;
     width:100%;
     max-width: 280px;
-    height: 48px;
     border-radius: 5px;
     margin: 5px;
     border: none;
-    ::placeholder,
-    ::-webkit-input-placeholder {
-        color: #585858;
-        font-size: 12px;
-        padding-left: 16px;
-    }
-    
-`
-export const Nbutton = styled.button `
-    background-color:#000000;
-    color: white;
-    width: 100%;
-    flex-direction: row;
-    max-width: 140px;
-    height: 48px;
-    border: none;
+    padding: 16px;
+    color: #585858;
     font-size: 12px;
-    font-weight: 700;
-    border-radius: 5px;
+`
+export const NInputErrorMessage = styled.span`
+    font-size: 12px;
+    color: red;
+`
+
+export const Nbutton = styled.div `
+    margin: 5px;
+    width:100%;
+    max-width: 140px;
     @media screen and (max-width: 798px){
         max-width: 280px;
         margin-top: 5px;
