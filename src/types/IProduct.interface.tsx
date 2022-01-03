@@ -1,20 +1,23 @@
 import ApiSearchResponse from "@prismicio/client/types/ApiSearchResponse";
 
 export interface IProduct {
-  data: object,
   uid: number
-  url?: string
-  name: string
-  stars?: number
-  price: number
-  promotionPrice?: number
-  parcel?: number
-  splitedPrice?: number
-  available: boolean
+  data: {
+    name: string
+    img: {
+      url?: string
+    }
+    stars?: number
+    price: number
+    promotionPrice?: number
+    parcel?: number
+    splitedPrice?: number
+    avaible: boolean
+  }
 }
 
-export interface IProducts {
-  [x: string]: any;
-  products: IProduct[],
-  api?: ApiSearchResponse
+export interface GetPrismicByQueryResponse extends Omit<ApiSearchResponse,"results"> {
+  results: IProduct[]
 }
+
+export type GetPrismicByQuery = () => Promise<GetPrismicByQueryResponse>

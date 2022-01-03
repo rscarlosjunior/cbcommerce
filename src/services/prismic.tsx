@@ -1,3 +1,4 @@
+import { GetPrismicByQuery, GetPrismicByQueryResponse} from '@/types/IProduct.interface'
 import Prismic from '@prismicio/client'
 
 export const usePrismicService = () => {
@@ -8,10 +9,10 @@ export const usePrismicService = () => {
         })
         return prismic
     }
-    const getPrismicByQuery =  async () => {
+    const getPrismicByQuery:GetPrismicByQuery = async () => {
         const service = getPrismicClient()
-        let query =  await service.query([Prismic.predicates.at('document.type', 'products')])
-        return query
+        const result = await service.query([Prismic.predicates.at('document.type', 'products')]) as unknown as GetPrismicByQueryResponse
+        return result
     }
 
     return {
