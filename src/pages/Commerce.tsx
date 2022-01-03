@@ -8,6 +8,9 @@ import { ProductBox } from '@/components/ProductBox';
 import { Newsletter } from '@/components/Newsletter';
 import { Footer } from '@/components/Footer';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+
 interface CommerceProps {
     value?: string,
     formatted?: object
@@ -19,6 +22,16 @@ export const Commerce: React.FC = () => {
     const { productFilter } = useFilter()
     const { getPrismicByQuery }  = usePrismicService()
     const xs = useMediaQuery('(max-width:797px)');
+
+    const settings = {
+        centerSlidePercentage:50,
+        infiniteLoop: true,
+        autoPlay: true,
+        showIndicators: false,
+        showStatus: false,
+        showArrows: true,
+        centerMode: true,
+      };
 
     useEffect(() => {
         handlePrismicByQuery()
@@ -48,6 +61,19 @@ export const Commerce: React.FC = () => {
         )
     },[products])
 
+    const memoizedCarousel = useMemo(() => {
+        if(!products) return null
+        return (
+            <ProductBoxContainer>
+                <Carousel {...settings}>
+                    {products.map((item) => 
+                        <ProductBox key={item.uid} {...item}/>
+                    )}
+                </Carousel>
+            </ProductBoxContainer>
+        )
+    },[products])
+
     return (
         <>
         <Template>
@@ -57,7 +83,11 @@ export const Commerce: React.FC = () => {
             {!xs && ( <BannerImage src="https://i.imgur.com/PIDL1qz.png" alt="criar ou migrar seu e-commerce?"/>)}
             {xs && ( <BannerImage src="https://i.imgur.com/nYcU6ro.jpg" alt="criar ou migrar seu e-commerce?"/>)}
             <Container>
-                {memoizedProducts}
+                {xs ? (
+                    memoizedCarousel
+                    ) : (
+                    memoizedProducts
+                )}
             </Container>
             <Newsletter/>
             <Footer/>
