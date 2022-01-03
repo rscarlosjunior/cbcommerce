@@ -5,33 +5,30 @@ export const Template = styled.div`
     flex: 1;
     width:100%;
     minHeight:auto;
-    alignItems:center;
-    flexDirection:column;
-    justifyContent:center;
+    flex-direction:column;
     `
 export const Container = styled.div`
     margin: 0 auto;
     max-width: 1280px;
     width:100%;
     minHeight:auto;
-    alignItems:center;
-    flexDirection:column;
+    align-items:center;
 `
 
 export const ProductBoxContainer = styled.div`
     display: flex;
     width:100%;
     margin:0 auto;
-    alignItems:center;
-    flexDirection:column;
-    margin-top: 30px;
+    align-items:center;
+    flex-direction: row;
     justify-content:space-between;
+    margin-top: 30px;
+    @media screen and (max-width: 797px){
+        justify-content: center;
+        flex-direction:column;
+    }
 `
-
-export const HeaderWrapper = styled.div`
-    display: flex;
-    width: 100%;
-    max-height: 80px;
-    flex-direction:column;
-    justify-content: center;
+export const BannerImage = styled.img`
+    width:100%;
+    cursor:pointer;
 `
