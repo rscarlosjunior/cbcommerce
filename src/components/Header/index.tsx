@@ -12,15 +12,11 @@ interface HeaderProps {
 export const Header:React.FC<HeaderProps> = ({
     handleProductFilter
 }) => {
-    const { search } = window.location; 
-    const query = new URLSearchParams(search).get('s');
-    const [searchQuery, setSearchQuery] = useState(query || '');
     const xs = useMediaQuery('(max-width:797px)');
 
     const handleFilter = (value:string) => {
         if (typeof handleProductFilter !== 'function') return
-        setSearchQuery(value)
-        handleProductFilter(searchQuery)
+        handleProductFilter(value)
     }
 
     return (
@@ -30,7 +26,6 @@ export const Header:React.FC<HeaderProps> = ({
                 <img src="https://i.imgur.com/R2kFhZw.png" alt=""/>
                 {!xs && (
                     <SearchBar
-                        searchQuery={searchQuery}
                         setSearchQuery={handleFilter}
                     />
                 )}
@@ -48,7 +43,6 @@ export const Header:React.FC<HeaderProps> = ({
             </Hcontent>
             {xs && (
                 <SearchBar
-                    searchQuery={searchQuery}
                     setSearchQuery={handleFilter}
                 />
             )}
