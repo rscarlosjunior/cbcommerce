@@ -28,16 +28,6 @@ export const Commerce: React.FC = () => {
   const { getPrismicByQuery } = usePrismicService()
   const xs = useMediaQuery('(max-width:797px)')
 
-  const settings = {
-    centerSlidePercentage: 50,
-    infiniteLoop: true,
-    autoPlay: true,
-    showIndicators: false,
-    showStatus: false,
-    showArrows: true,
-    centerMode: true
-  }
-
   useEffect(() => {
     handlePrismicByQuery()
   }, [])
@@ -68,6 +58,17 @@ export const Commerce: React.FC = () => {
 
   const memoizedCarousel = useMemo(() => {
     if (!products) return null
+
+    const settings = {
+      centerSlidePercentage: 50,
+      infiniteLoop: true,
+      autoPlay: true,
+      showIndicators: false,
+      showStatus: false,
+      showArrows: true,
+      centerMode: true
+    }
+
     return (
       <ProductBoxContainer>
         <Carousel {...settings}>
