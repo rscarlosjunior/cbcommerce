@@ -13,25 +13,11 @@ import {
 } from './styles'
 import { RichText } from 'prismic-dom'
 import LoadingButton from '@mui/lab/LoadingButton'
+import { useCart } from '@/hooks/useCart'
 
 export const ProductBox = ({ ...item }: IProduct) => {
   const [loading, setLoading] = useState(false)
-
-  const addToCart = () => {
-    //todo: change add to cart to redux.
-    setLoading(true)
-    const total = localStorage.getItem('cart')
-    if (!total) {
-      localStorage.setItem('cart', JSON.stringify(1))
-      return window.location.reload()
-    }
-    const items = parseFloat(total)
-    setTimeout(() => {
-      setLoading(false)
-      localStorage.setItem('cart', JSON.stringify(items + 1))
-      window.location.reload()
-    }, 2000)
-  }
+  const { updateValue } = useCart()
 
   return (
     <Pwrapper>
@@ -56,7 +42,7 @@ export const ProductBox = ({ ...item }: IProduct) => {
         )}
         {item.data.avaible && (
           <LoadingButton
-            onClick={addToCart}
+            onClick={updateValue}
             disabled={loading}
             loading={loading}
             variant="contained"

@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Header } from '@/components/Header'
-import { useFilter } from '@/hooks/FilterProducts'
+import { useFilter } from '@/hooks/useFilterProducts'
 import {
   ProductBoxContainer,
   Container,
@@ -15,6 +15,7 @@ import { Footer } from '@/components/Footer'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
+import { CartItemProvider } from '@/context/addToCart'
 
 interface CommerceProps {
   value?: string
@@ -82,6 +83,7 @@ export const Commerce: React.FC = () => {
 
   return (
     <>
+    <CartItemProvider>
       <Template>
         <Container>
           <Header
@@ -104,6 +106,7 @@ export const Commerce: React.FC = () => {
         <Newsletter />
         <Footer />
       </Template>
+    </CartItemProvider>
     </>
   )
 }

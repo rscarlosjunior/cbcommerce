@@ -5,13 +5,13 @@ import ShoppingCartSharpIcon from '@mui/icons-material/ShoppingCartSharp'
 import PermIdentitySharpIcon from '@mui/icons-material/PermIdentitySharp'
 import { useMediaQuery } from '@mui/material'
 import { Menu } from '@mui/icons-material'
-import useLocalStorageLite from '@/hooks/LocalStorage'
+import { useCart } from '@/hooks/useCart'
 interface HeaderProps {
   handleProductFilter?: (v?: string) => void
 }
 export const Header: React.FC<HeaderProps> = ({ handleProductFilter }) => {
+  const { cartItems } = useCart()
   const xs = useMediaQuery('(max-width:797px)')
-  const cart = useLocalStorageLite('cart') //todo: change add to cart to redux.
 
   const handleFilter = (value: string) => {
     if (typeof handleProductFilter !== 'function') return
@@ -33,9 +33,7 @@ export const Header: React.FC<HeaderProps> = ({ handleProductFilter }) => {
           )}
           <IconSpacing>
               <ShoppingCartSharpIcon sx={{ fontSize: 35 }} />
-              {cart && (
-                <Total> {cart.state ? cart.state : 0} </Total>
-              )}
+              <Total> {cartItems ? cartItems : 0 } </Total>
           </IconSpacing>
         </IconWrapper>
       </Hcontent>
