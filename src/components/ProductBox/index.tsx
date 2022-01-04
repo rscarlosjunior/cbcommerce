@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IProduct } from '@/types/IProduct.interface'
 import Rating from '@mui/material/Rating'
 
@@ -13,8 +13,26 @@ import {
   Box
 } from './styles'
 import { RichText } from 'prismic-dom'
+import LoadingButton from '@mui/lab/LoadingButton'
 
 export const ProductBox = ({ ...item }: IProduct) => {
+  const [loading, setLoading] = useState(false)
+
+  const addToCart = () => {
+    setLoading(true)
+    const total = localStorage.getItem('cart')
+    if (!total) {
+      localStorage.setItem('cart', JSON.stringify(1))
+      return alert('adicionado 1 item ao carrinho')
+    }
+    const items = parseFloat(total)
+    setTimeout(() => {
+      setLoading(false)
+      alert(`adicionado ${items + 1} produtos ao carrinho`)
+      localStorage.setItem('cart', JSON.stringify(items + 1))
+    }, 2000)
+  }
+
   return (
     <Pwrapper>
       <img src={item.data.img.url} alt={item.data.name} />
@@ -36,7 +54,27 @@ export const ProductBox = ({ ...item }: IProduct) => {
             ou em {item.data.parcel}x de R${item.data.splitedPrice}
           </ProductParcelPrice>
         )}
-        {item.data.avaible && <Bbuton>Comprar</Bbuton>}
+        {item.data.avaible && (
+          <LoadingButton
+            onClick={addToCart}
+            disabled={loading}
+            loading={loading}
+            variant="contained"
+            style={{
+              backgroundColor: !loading ? '#000000' : '',
+              color: 'white',
+              width: '100%',
+              flexDirection: 'row',
+              height: '48px',
+              border: 'none',
+              fontSize: '12px',
+              fontWeight: 700,
+              borderRadius: '5px'
+            }}
+          >
+            {!loading && 'Comprar'}
+          </LoadingButton>
+        )}
       </Dwrapper>
     </Pwrapper>
   )
