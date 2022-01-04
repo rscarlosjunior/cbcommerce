@@ -15,3 +15,15 @@ to run in development mode:
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+
+- Webpack
+- Babel
+- Styled-components
+- Material UI (some icons, components and breakingPoints)
+- Prismic (api for products)
+
+Todo:
+- Include redux
+- Better Search
+- Use more Material UI or create StoryBook
