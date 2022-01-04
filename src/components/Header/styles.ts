@@ -13,7 +13,7 @@ export const IconWrapper = styled.div`
   @media screen and (min-width: 798px) {
     width: 100%;
   }
-  max-width: 185px;
+  max-width: 205px;
 `
 export const IconSpacing = styled.div`
   margin: 0px 5px 0px 5px;
