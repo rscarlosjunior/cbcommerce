@@ -9,7 +9,6 @@ import {
   ProductPrice,
   ProductParcelPrice,
   ProductSalePrice,
-  Bbuton,
   Box
 } from './styles'
 import { RichText } from 'prismic-dom'
@@ -19,17 +18,18 @@ export const ProductBox = ({ ...item }: IProduct) => {
   const [loading, setLoading] = useState(false)
 
   const addToCart = () => {
+    //todo: change add to cart to redux.
     setLoading(true)
     const total = localStorage.getItem('cart')
     if (!total) {
       localStorage.setItem('cart', JSON.stringify(1))
-      return alert('adicionado 1 item ao carrinho')
+      return window.location.reload()
     }
     const items = parseFloat(total)
     setTimeout(() => {
       setLoading(false)
-      alert(`adicionado ${items + 1} produtos ao carrinho`)
       localStorage.setItem('cart', JSON.stringify(items + 1))
+      window.location.reload()
     }, 2000)
   }
 
