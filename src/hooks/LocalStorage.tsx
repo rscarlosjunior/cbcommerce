@@ -11,14 +11,14 @@ function useLocalStorageLite<T>(key: string) {
 
     useEffect(() => {
         localStorage.setItem(key, JSON.stringify(state))
-    }, [state])
+    }, [state, key])
 
     const storageWatcher = useCallback(
         (e: StorageEvent) => {
             if (e.newValue) {
                 setState((currState) => {
                     const newDat = JSON.parse(e.newValue || "null")
-                    return newDat == state ? newDat : currState
+                    return newDat === state ? newDat : currState
                 })
             }
         },
@@ -30,7 +30,7 @@ function useLocalStorageLite<T>(key: string) {
         return () => {
             window.removeEventListener("storage", storageWatcher)
         }
-    }, [state])
+    }, [state, storageWatcher])
 
     return { state, setState }
 }
