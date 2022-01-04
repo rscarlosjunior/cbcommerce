@@ -25,3 +25,14 @@ export const MyAccount = styled.span`
   font-size: 15px;
   color: #7a7a7a;
 `
+
+export const Total = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+  background-color: #F8475F;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
