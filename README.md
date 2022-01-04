@@ -16,7 +16,7 @@ to run in development mode:
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-
+- Typescript
 - Webpack
 - Babel
 - Styled-components
@@ -25,5 +25,6 @@ You will also see any lint errors in the console.
 
 Todo:
 - Include redux
+- Include Jest for tests
 - Better Search
 - Use more Material UI or create StoryBook
